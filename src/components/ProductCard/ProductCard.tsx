@@ -4,13 +4,11 @@ import Image from "next/image";
 
 import { formatPrice } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { useBasket } from "@/app/store/basket";
 
-export const ProductCard: React.FC<Product> = ({
-  colour,
-  name,
-  price,
-  img,
-}) => {
+export const ProductCard: React.FC<Product> = (product) => {
+  const { colour, name, price, img } = product;
+  const { addToBasket } = useBasket();
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       {img && (
@@ -32,9 +30,7 @@ export const ProductCard: React.FC<Product> = ({
         <span className="text-3xl font-bold text-gray-900 dark:text-white">
           {formatPrice(price)}
         </span>
-        <Button onClick={() => console.log("add to cart")}>
-          Add To Basket
-        </Button>
+        <Button onClick={() => addToBasket(product)}>Add To Basket</Button>
       </div>
     </div>
   );

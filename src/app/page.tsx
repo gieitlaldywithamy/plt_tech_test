@@ -1,7 +1,6 @@
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
 import { ProductCard } from "@/components/ProductCard";
 import { Product } from "@/lib/definitions";
-import Image from "next/image";
 
 async function getProducts() {
   const res = await fetch(
@@ -20,7 +19,7 @@ async function getProducts() {
 
 export default async function Page() {
   const products = await getProducts();
-  console.log({ products });
+
   return (
     <MaxWidthWrapper>
       <div className="flex flex-col mx-auto py-20 items-center gap-6">
