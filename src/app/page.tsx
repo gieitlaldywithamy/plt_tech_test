@@ -1,41 +1,48 @@
-import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
-import { ProductCard } from "@/components/ProductCard";
+import { ProductPreview } from "@/components/ProductPreview";
 import { Product } from "@/lib/definitions";
+import { API_URL } from "@/lib/utils";
 
 async function getProducts() {
-  const res = await fetch(
-    "https://my-json-server.typicode.com/benirvingplt/products/products"
-  );
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
+  const res = await fetch(`${API_URL}/products/products`);
 
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to get products");
   }
 
   return res.json();
 }
 
-export default async function Page() {
+async function Page() {
   const products = await getProducts();
 
   return (
-    <MaxWidthWrapper>
-      <div className="flex flex-col mx-auto py-20 items-center gap-6">
-        <h1 className="text-4xl font-bold text-gray-900 sm:text-6xl pb-4">
-          Welcome to <span className="text-pink-600">Pretty Little Thing</span>.
-        </h1>
-        <section className="border-t border-gray-200 bg-gray-50">
-          <ul role="list" className="flex flex-row flex-wrap m-2 gap-6">
+    <div className="flex flex-col mx-auto py-20 items-center gap-6">
+      <h1
+        role="heading"
+        className="text-4xl font-bold text-gray-900 sm:text-6xl pb-4"
+      >
+        Welcome to <span className="text-pink-600">Pretty Little Thing</span>.
+      </h1>
+      <section className="border-t border-gray-200 bg-gray-50">
+        {products.length > 0 ? (
+          <ul
+            role="list"
+            className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+          >
             {products.map(({ id, ...rest }: Product) => (
-              <li key={id}>
-                <ProductCard id={id} {...rest} />{" "}
+              <li key={id} data-testid={`product-preview-${id}`}>
+                <ProductPreview id={id} {...rest} />
               </li>
             ))}
           </ul>
-        </section>
-      </div>
-    </MaxWidthWrapper>
+        ) : (
+          <h4 className="text-3xl font-medium">
+            No Stock Found. Please check back later!!
+          </h4>
+        )}
+      </section>
+    </div>
   );
 }
+
+export default Page;
