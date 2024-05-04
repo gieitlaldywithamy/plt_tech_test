@@ -1,7 +1,7 @@
 "use client";
 
 import { formatPrice } from "@/lib/utils";
-import { Trash2 } from "lucide-react";
+import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useBasket } from "../store/basket";
 import { Product } from "@/lib/definitions";
@@ -11,7 +11,7 @@ interface BasketItem extends Product {
 }
 
 const Page = () => {
-  const { basket, removeFromBasket, decreaseQuantity } = useBasket();
+  const { basket, removeFromBasket, decreaseQuantity, increaseQuantity } = useBasket();
 
   return (
     <div className="bg-white">
@@ -55,9 +55,15 @@ const Page = () => {
                       onClick={() => decreaseQuantity(product.id)}
                       aria-label="Decrease quantity"
                     >
-                      <Trash2 color="red" />
+                      <Minus />
                     </button>
                     <span>{product.quantity}</span>
+                    <button
+                      onClick={() => increaseQuantity(product.id)}
+                      aria-label="Increase quantity"
+                    >
+                      <Plus />
+                    </button>
                   </p>
                   {/* TODO IS THIS ACCESSIBLE?? */}
                   <div className="mt-4 ">

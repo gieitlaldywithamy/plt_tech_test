@@ -52,6 +52,16 @@ export const useBasket = create<BasketState>()((set) => ({
         return { basket: updatedBasket };
       }
     }),
+    increaseQuantity: (productId: number) =>
+      set((state) => {
+        // TODO overlap here
+        const existingProductIndex = state.basket.findIndex(
+          (item) => item.product.id === productId
+        );
+        const updatedBasket = [...state.basket];
+        updatedBasket[existingProductIndex].product.quantity++;
+        return { basket: updatedBasket };
+      }),
   removeFromBasket: (productId) =>
     set((state) => ({
       basket: state.basket.filter((item) => item.product.id !== productId),

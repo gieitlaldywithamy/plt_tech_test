@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Basket } from "../Basket/Basket";
 import { MaxWidthWrapper } from "../MaxWidthWrapper";
 
@@ -8,6 +9,9 @@ function Navbar() {
         <div className="align-element flex justify-between items-center">
           <header className="uppercase">Pretty Little Thing</header>
           <div className="flex justify-center items-center gap-x-4">
+            <Link href="/">
+              Products
+            </Link>
             <Basket />
           </div>
         </div>
