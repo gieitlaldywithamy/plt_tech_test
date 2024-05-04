@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 export const AddToBag: React.FC<{ product: Product }> = ({ product }) => {
   const { addToBasket } = useBasket();
+
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
   useEffect(() => {

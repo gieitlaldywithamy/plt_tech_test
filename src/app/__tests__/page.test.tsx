@@ -1,8 +1,9 @@
-import { getByRole, render, screen } from "@testing-library/react";
-import Page from "./page";
+import { render, screen } from "@testing-library/react";
+import Page from "../page";
 
 import fetchMock from "jest-fetch-mock";
 fetchMock.enableMocks();
+
 describe("Home Page", () => {
   it("on happy path, renders a heading with a list of product previews", async () => {
     const res = [

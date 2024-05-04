@@ -8,7 +8,7 @@ function Navbar() {
       <MaxWidthWrapper className="p-8">
         <div className="align-element flex justify-between items-center">
           <Link href="/" className="hover:underline">
-            <header className="uppercase">Pretty Little Thing</header>
+            Pretty Little Thing
           </Link>
           <div className="flex justify-center items-center gap-x-4">
             <Link href="/" className="hover:underline">

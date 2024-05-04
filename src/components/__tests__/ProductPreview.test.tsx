@@ -2,10 +2,6 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ProductPreview } from "../ProductPreview";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
-}))
-
 const productMock = {
   id: 0,
   colour: "Blue",

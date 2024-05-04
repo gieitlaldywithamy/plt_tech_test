@@ -1,7 +1,5 @@
-"use client";
 import { Product } from "@/lib/definitions";
 import Image from "next/image";
-
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 
