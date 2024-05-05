@@ -50,7 +50,6 @@ const Page = () => {
 
                     <p className="mt-4 flex space-x-2 text-sm text-gray-700">
                       <span>Quanity</span>
-                      {/* TODO change to minus */}
                       <button
                         onClick={() => decreaseQuantity(product.id)}
                         aria-label="Decrease quantity"

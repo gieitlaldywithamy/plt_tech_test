@@ -1,13 +1,12 @@
 import { AddToBag } from "@/components/AddToBag";
-import { Product } from "@/lib/definitions";
+import { API_URL, Product } from "@/lib/definitions";
 import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
 
 async function getProduct(productId: string) {
-  const res = await fetch(
-    `https://my-json-server.typicode.com/benirvingplt/products/products/${productId}`,
-    { next: { revalidate: 3600 } }
-  );
+  const res = await fetch(`${API_URL}/${productId}`, {
+    next: { revalidate: 3600 },
+  });
   if (!res.ok) {
     throw new Error("Failed to get product");
   }
@@ -34,8 +33,7 @@ const Page = async ({ params }: PageProps) => {
         <h2 className="font-heading text-2xl md:text-3xl">{name}</h2>
         <span className="text-gray-500">{formatPrice(price)}</span>
         <p>
-          <span className="font-medium">Colour:</span>{" "}
-          <span data-testid="pdp-current-colour">{colour}</span>
+          <span className="font-medium">Colour:</span> <span>{colour}</span>
         </p>
         <AddToBag product={product} />
       </div>

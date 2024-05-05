@@ -1,7 +1,6 @@
 import { EmptyHeading } from "@/components/EmptyHeading";
 import { ProductPreview } from "@/components/ProductPreview";
-import { Product } from "@/lib/definitions";
-import { API_URL } from "@/lib/utils";
+import { API_URL, Product } from "@/lib/definitions";
 
 async function getProducts() {
   const res = await fetch(`${API_URL}/products/products`);

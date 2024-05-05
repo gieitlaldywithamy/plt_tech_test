@@ -12,8 +12,7 @@ The objective is to build a basic eCommerce web
 based application (using NextJS) that integrates the
 product and menu data from this DB
 
-https://my-json-
-server.typicode.com/benirvingplt/products
+https://my-json-server.typicode.com/benirvingplt/products
 
 There are a few basic shopping requirements
 A user should be able to:
@@ -22,22 +21,17 @@ A user should be able to:
 - Navigate to a basket screen
 - Edit quantity/remove items from the basket screen
 
-Whilst this is only a sample application, it should be
-built in the same manner as a production
-application. Consideration should be put into data
-fetching, state management, static typing and
-testing.
-Use whatever libraries you are most comfortable
-with.
-Basic styling is fine, using tailwind and making it
-responsive would be a bonus
+## Decisions
 
-It is much more valuable to demonstrate how you
-think about data/state management and component
-composition than it is to make the components look
-nice in this case.
+### Data-fetching:
+For this sample application, we could take advantage of Server Components in Next's app router and execute both /products and /products/{id} on the server. For the landing page if more products were being retrieved and we decided on an infinite scroll approach, I would have pre-fetched the first page server side and fetched following pages client side while the user scrolled using react-query.
+I was concerned the product list (/products) wouldn't be fresh so I have added in a time based cache reevaluation, in production I suspect this approach to caching would not work however upon reading the docs it seems we could send revalidatePath('/') when fresh data was added. I am assuming that product ids would not change and the db would have an auto incremental id approach when a new product has added so I have kept the default Nextjs Data Cache in place.
 
-Please don't spend more than a few hours working
-on this. It does not matter if you cannot complete all
-the requirements, please substitute code for
-comments/explanation where applicable.
+### State management:
+The only piece of user state was a basket and I have chosen zustand to manage this with local storage keeping this basket to encourage users to purchase. I purposely avoided a context provider pattern as the basket would update too frequently and I feel the zustand store could easily be changed to redux if zustand was not well known or others did not agree it was a good choice. I'm not sure if this is considered 'cheating' and I'd happily change this. Admittedly I've never used zustand in a production environment and I felt the testing documentation for it was not quite clear.
+
+### Testing:
+I quickly realised it was a long time since I have unit tested anything and I'm not particularly happy with the coverage. I have tested the pages and these basic components however I am not proud of what I have achieved with this time period, I clearly need some practice!
+
+I have used tailwind and this is responsive.
+ 

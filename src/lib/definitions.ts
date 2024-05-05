@@ -1,5 +1,3 @@
-// TODO AM Swagger or docs from API
-
 export type Product = {
   id: number;
   colour: string;
@@ -7,3 +5,5 @@ export type Product = {
   price: number;
   img: string;
 }
+
+export const API_URL = "https://my-json-server.typicode.com/benirvingplt/products/products/";

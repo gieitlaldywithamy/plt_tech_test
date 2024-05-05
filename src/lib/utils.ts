@@ -14,5 +14,3 @@ export function formatPrice(
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
-
-export const API_URL = "https://my-json-server.typicode.com/benirvingplt/products/products/";
