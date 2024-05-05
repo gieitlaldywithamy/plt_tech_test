@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
-import Navbar from "@/components/NavBar";
+import Navbar from "@/components/Navbar/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 

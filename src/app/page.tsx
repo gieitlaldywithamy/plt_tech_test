@@ -1,3 +1,4 @@
+import { EmptyHeading } from "@/components/EmptyHeading";
 import { ProductPreview } from "@/components/ProductPreview";
 import { Product } from "@/lib/definitions";
 import { API_URL } from "@/lib/utils";
@@ -36,9 +37,7 @@ async function Page() {
             ))}
           </ul>
         ) : (
-          <h4 className="text-3xl font-medium">
-            No Stock Found. Please check back later!!
-          </h4>
+          <EmptyHeading>No Stock Found. Please check back later!!</EmptyHeading>
         )}
       </section>
     </div>

@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { Basket } from "./Basket";
-import { MaxWidthWrapper } from "./MaxWidthWrapper";
+import { MaxWidthWrapper } from "../MaxWidthWrapper";
+import { BasketLink } from "./BasketLink";
 
 function Navbar() {
   return (
-    <nav className="bg-white sticky z-50 top-0 inset-x-0 h-16" aria-label="Main">
+    <nav
+      className="bg-white sticky z-50 top-0 inset-x-0 h-16"
+      aria-label="Main"
+    >
       <MaxWidthWrapper className="p-8">
         <div className="align-element flex justify-between items-center">
           <Link href="/" className="hover:underline">
@@ -14,7 +17,7 @@ function Navbar() {
             <Link href="/" className="hover:underline">
               Products
             </Link>
-            <Basket />
+            <BasketLink />
           </div>
         </div>
       </MaxWidthWrapper>

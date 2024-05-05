@@ -4,7 +4,7 @@ import { useBasket } from "@/app/store/basket";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
-export const Basket: React.FC = () => {
+export const BasketLink: React.FC = () => {
   const { basket } = useBasket();
   const numProductsInBasket = basket.length;
   return (
@@ -16,4 +16,4 @@ export const Basket: React.FC = () => {
       </Link>
   );
 };
-export default Basket;
+

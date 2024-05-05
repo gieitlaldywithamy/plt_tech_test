@@ -5,7 +5,8 @@ import Image from "next/image";
 
 async function getProduct(productId: string) {
   const res = await fetch(
-    `https://my-json-server.typicode.com/benirvingplt/products/products/${productId}`
+    `https://my-json-server.typicode.com/benirvingplt/products/products/${productId}`,
+    { next: { revalidate: 3600 } }
   );
   if (!res.ok) {
     throw new Error("Failed to get product");
