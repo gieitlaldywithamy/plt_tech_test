@@ -34,4 +34,6 @@ The only piece of user state was a basket and I have chosen zustand to manage th
 I quickly realised it was a long time since I have unit tested anything and I'm not particularly happy with the coverage. I have tested the pages and these basic components however I am not proud of what I have achieved with this time period, I clearly need some practice!
 
 I have used tailwind and this is responsive.
- 
+
+### Demo:
+ [Download](https://github.com/gieitlaldywithamy/plt_tech_test/assets/9000501/2b845093-a957-4964-9dce-36aba837489b)
